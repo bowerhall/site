@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheldon - Personal AI Assistant</title>
+    <meta name="description" content="Personal AI assistant that remembers your entire life, runs on your infrastructure, and writes code autonomously.">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='white'>S</text></svg>">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">bowerhall</a>
+                <nav class="nav">
+                    <a href="https://github.com/bowerhall/sheldon">GitHub</a>
+                    <a href="https://github.com/bowerhall/sheldon#readme">Docs</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero hero-sm">
+            <div class="container">
+                <h1>Sheldon <span class="tag live">Live</span></h1>
+                <p>Personal AI assistant that remembers your entire life, runs on your infrastructure, and writes code autonomously.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="install-box">
+                    <p>Install on any Ubuntu VPS:</p>
+                    <div class="install-code">curl -fsSL bowerhall.ai/sheldon/install | sudo bash</div>
+                </div>
+
+                <ul class="features">
+                    <li><strong>Structured memory</strong> — 14 life domains, semantic search, confidence-scored facts</li>
+                    <li><strong>Autonomous coder</strong> — Writes, tests, and deploys code in sandboxed containers</li>
+                    <li><strong>Web browsing</strong> — Researches, fills forms, handles JS-heavy sites</li>
+                    <li><strong>Context-aware crons</strong> — Reminders and check-ins that understand context</li>
+                    <li><strong>Multi-provider LLM</strong> — Kimi, Claude, OpenAI, Ollama. Switch at runtime</li>
+                    <li><strong>Self-hosted</strong> — Your data stays on your infrastructure</li>
+                </ul>
+
+                <div class="btn-group">
+                    <a href="https://github.com/bowerhall/sheldon" class="btn btn-primary">View on GitHub</a>
+                    <a href="https://github.com/bowerhall/sheldon#readme" class="btn btn-secondary">Read Docs</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-label">Homelab Scripts</div>
+                <div class="install-box">
+                    <p>Join private network (requires Headscale):</p>
+                    <div class="install-code">HEADSCALE_URL=https://hs.example.com AUTHKEY=key curl bowerhall.ai/sheldon/invite | sudo bash</div>
+                </div>
+                <div class="install-box">
+                    <p>Standalone agent (container management only):</p>
+                    <div class="install-code">curl bowerhall.ai/sheldon/agent | sudo bash</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <span>bowerhall</span>
+                <div class="footer-links">
+                    <a href="https://github.com/bowerhall/sheldon">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

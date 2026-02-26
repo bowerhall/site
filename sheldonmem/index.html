@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sheldonmem - Memory System for AI Agents</title>
+    <meta name="description" content="Embeddable memory system for AI agents. SQLite + sqlite-vec, structured domains, hybrid retrieval.">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='white'>m</text></svg>">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">bowerhall</a>
+                <nav class="nav">
+                    <a href="https://github.com/bowerhall/sheldon/tree/main/pkg/sheldonmem">GitHub</a>
+                    <a href="https://pkg.go.dev/github.com/bowerhall/sheldon/pkg/sheldonmem">Docs</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero hero-sm">
+            <div class="container">
+                <h1>sheldonmem <span class="tag live">Live</span></h1>
+                <p>Embeddable memory system for AI agents. Single SQLite file, zero external dependencies.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="install-box">
+                    <p>Install:</p>
+                    <div class="install-code">go get github.com/bowerhall/sheldon/pkg/sheldonmem</div>
+                </div>
+
+                <ul class="features">
+                    <li><strong>Single file storage</strong> — SQLite + sqlite-vec, portable, no external DB</li>
+                    <li><strong>14 life domains</strong> — Structured memory across identity, health, work, relationships, etc.</li>
+                    <li><strong>Entity-fact-edge model</strong> — Knowledge graph with typed relationships</li>
+                    <li><strong>Hybrid retrieval</strong> — Keyword + semantic search combined</li>
+                    <li><strong>Confidence scoring</strong> — Facts have confidence levels, contradictions auto-resolve</li>
+                    <li><strong>Memory decay</strong> — Salience-aware cleanup for long-running agents</li>
+                </ul>
+
+                <div class="install-box">
+                    <p>Quick start:</p>
+                    <div class="install-code">store, _ := sheldonmem.Open("/path/to/memory.db")
+store.SetEmbedder(yourEmbedder)
+result, _ := store.Recall(ctx, "user's location", nil, 5)</div>
+                </div>
+
+                <div class="btn-group">
+                    <a href="https://github.com/bowerhall/sheldon/tree/main/pkg/sheldonmem" class="btn btn-primary">View on GitHub</a>
+                    <a href="https://pkg.go.dev/github.com/bowerhall/sheldon/pkg/sheldonmem" class="btn btn-secondary">Go Docs</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <span>bowerhall</span>
+                <div class="footer-links">
+                    <a href="https://github.com/bowerhall/sheldon/tree/main/pkg/sheldonmem">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
