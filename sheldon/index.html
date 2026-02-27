@@ -3,78 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sheldon - Personal AI Assistant</title>
-    <meta name="description" content="Personal AI assistant that remembers your entire life, runs on your infrastructure, and writes code autonomously.">
+    <title>sheldon</title>
     <link rel="stylesheet" href="/styles.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='white'>S</text></svg>">
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="/" class="logo">bowerhall</a>
-                <nav class="nav">
-                    <a href="https://github.com/bowerhall/sheldon">GitHub</a>
-                    <a href="https://github.com/bowerhall/sheldon#readme">Docs</a>
-                </nav>
-            </div>
+        <div class="wrap">
+            <a href="/" class="logo">bowerhall</a>
+            <nav class="nav">
+                <a href="https://github.com/bowerhall/sheldon">github</a>
+                <a href="https://github.com/bowerhall/sheldon#readme">docs</a>
+            </nav>
         </div>
     </header>
 
     <main>
-        <section class="hero hero-sm">
-            <div class="container">
-                <h1>Sheldon <span class="tag live">Live</span></h1>
-                <p>Personal AI assistant that remembers your entire life, runs on your infrastructure, and writes code autonomously.</p>
+        <div class="wrap product">
+            <h1>sheldon</h1>
+            <p class="lead">An assistant that remembers what matters to you, learns your rhythms, and develops personality over time. Whatever you need done on a computer, Sheldon can probably do it. Self-hosted for ~$8/mo.</p>
+
+            <div class="cmd-block">
+                <div class="cmd-label">Install on any Ubuntu VPS</div>
+                <div class="cmd-code">curl -fsSL bowerhall.ai/sheldon/install | sudo bash</div>
             </div>
-        </section>
 
-        <section class="section">
-            <div class="container">
-                <div class="install-box">
-                    <p>Install on any Ubuntu VPS:</p>
-                    <div class="install-code">curl -fsSL bowerhall.ai/sheldon/install | sudo bash</div>
-                </div>
+            <div class="section-title">Memory</div>
+            <ul class="features">
+                <li>
+                    <strong>14 life domains</strong>
+                    Identity, health, relationships, work, finances, goals, routines. Facts tagged and retrievable by domain.
+                </li>
+                <li>
+                    <strong>Contradiction resolution</strong>
+                    "I moved to Portland" supersedes "I live in NYC". Old facts archived, new facts active.
+                </li>
+                <li>
+                    <strong>Time-based recall</strong>
+                    "What did we discuss last week?" "What happened on February 20th?" Explicit time queries, not just decay.
+                </li>
+                <li>
+                    <strong>Zero-cost embeddings</strong>
+                    Local Ollama models. No API fees for vector search.
+                </li>
+            </ul>
 
-                <ul class="features">
-                    <li><strong>Structured memory</strong> — 14 life domains, semantic search, confidence-scored facts</li>
-                    <li><strong>Autonomous coder</strong> — Writes, tests, and deploys code in sandboxed containers</li>
-                    <li><strong>Web browsing</strong> — Researches, fills forms, handles JS-heavy sites</li>
-                    <li><strong>Context-aware crons</strong> — Reminders and check-ins that understand context</li>
-                    <li><strong>Multi-provider LLM</strong> — Kimi, Claude, OpenAI, Ollama. Switch at runtime</li>
-                    <li><strong>Self-hosted</strong> — Your data stays on your infrastructure</li>
-                </ul>
+            <div class="section-title">Crons that remember</div>
+            <ul class="features">
+                <li>
+                    <strong>Memory-linked triggers</strong>
+                    Crons store a keyword, not a message. At fire time, Sheldon recalls current context matching that keyword.
+                </li>
+                <li>
+                    <strong>Adapts to changes</strong>
+                    "Take meds at 8pm" → later you mention "take with food" → the 8pm reminder now includes both facts.
+                </li>
+                <li>
+                    <strong>One-time or recurring</strong>
+                    "Remind me at 3pm" auto-deletes after firing. "Check on me every 6 hours" persists.
+                </li>
+            </ul>
 
-                <div class="btn-group">
-                    <a href="https://github.com/bowerhall/sheldon" class="btn btn-primary">View on GitHub</a>
-                    <a href="https://github.com/bowerhall/sheldon#readme" class="btn btn-secondary">Read Docs</a>
-                </div>
+            <div class="section-title">Code to deploy</div>
+            <ul class="features">
+                <li>
+                    <strong>Sandboxed coder</strong>
+                    Ephemeral Docker containers. No access to your tokens. Writes code, can't push directly.
+                </li>
+                <li>
+                    <strong>GitHub collaboration</strong>
+                    Creates branches, opens PRs to your org. You review and merge.
+                </li>
+                <li>
+                    <strong>Full pipeline</strong>
+                    Request → code → Docker build → registry push → Traefik routes → live at https://app.yourdomain.com
+                </li>
+                <li>
+                    <strong>Multi-provider</strong>
+                    Kimi, Claude, GPT-4, Ollama. Switch models mid-conversation. Auto-fallback when credits run out.
+                </li>
+            </ul>
+
+            <div class="section-title">Browser</div>
+            <ul class="features">
+                <li>
+                    <strong>Browser automation</strong>
+                    Sandboxed agent-browser for JS-heavy sites. Research, form filling, scraping.
+                </li>
+            </ul>
+
+            <div class="section-title">Homelab</div>
+            <ul class="features">
+                <li>
+                    <strong>Private mesh network</strong>
+                    Headscale (self-hosted Tailscale). Add machines with one command. Manage containers remotely.
+                </li>
+                <li>
+                    <strong>S3 storage</strong>
+                    MinIO for files, backups, sharing. Generate expiring links. Backup memory to storage.
+                </li>
+            </ul>
+
+            <div class="cmd-block">
+                <div class="cmd-label">Join homelab network</div>
+                <div class="cmd-code">HEADSCALE_URL=https://hs.example.com AUTHKEY=key \
+curl -fsSL bowerhall.ai/sheldon/invite | sudo bash</div>
             </div>
-        </section>
 
-        <section class="section">
-            <div class="container">
-                <div class="section-label">Homelab Scripts</div>
-                <div class="install-box">
-                    <p>Join private network (requires Headscale):</p>
-                    <div class="install-code">HEADSCALE_URL=https://hs.example.com AUTHKEY=key curl bowerhall.ai/sheldon/invite | sudo bash</div>
-                </div>
-                <div class="install-box">
-                    <p>Standalone agent (container management only):</p>
-                    <div class="install-code">curl bowerhall.ai/sheldon/agent | sudo bash</div>
-                </div>
+            <div class="cmd-block">
+                <div class="cmd-label">Standalone agent</div>
+                <div class="cmd-code">curl -fsSL bowerhall.ai/sheldon/agent | sudo bash</div>
             </div>
-        </section>
+
+            <div class="btn-row">
+                <a href="https://github.com/bowerhall/sheldon" class="btn">GitHub</a>
+                <a href="https://github.com/bowerhall/sheldon#readme" class="btn">Documentation</a>
+            </div>
+        </div>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <span>bowerhall</span>
-                <div class="footer-links">
-                    <a href="https://github.com/bowerhall/sheldon">GitHub</a>
-                </div>
-            </div>
+        <div class="wrap">
+            <span>bowerhall</span>
+            <a href="https://github.com/bowerhall/sheldon">github</a>
         </div>
     </footer>
 </body>

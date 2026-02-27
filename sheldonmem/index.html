@@ -3,71 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sheldonmem - Memory System for AI Agents</title>
-    <meta name="description" content="Embeddable memory system for AI agents. SQLite + sqlite-vec, structured domains, hybrid retrieval.">
+    <title>sheldonmem</title>
     <link rel="stylesheet" href="/styles.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='white'>m</text></svg>">
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="/" class="logo">bowerhall</a>
-                <nav class="nav">
-                    <a href="https://github.com/bowerhall/sheldon/tree/main/pkg/sheldonmem">GitHub</a>
-                    <a href="https://pkg.go.dev/github.com/bowerhall/sheldon/pkg/sheldonmem">Docs</a>
-                </nav>
-            </div>
+        <div class="wrap">
+            <a href="/" class="logo">bowerhall</a>
+            <nav class="nav">
+                <a href="https://github.com/bowerhall/sheldon/tree/main/pkg/sheldonmem">github</a>
+                <a href="https://pkg.go.dev/github.com/bowerhall/sheldon/pkg/sheldonmem">godoc</a>
+            </nav>
         </div>
     </header>
 
     <main>
-        <section class="hero hero-sm">
-            <div class="container">
-                <h1>sheldonmem <span class="tag live">Live</span></h1>
-                <p>Embeddable memory system for AI agents. Single SQLite file, zero external dependencies.</p>
+        <div class="wrap product">
+            <h1>sheldonmem</h1>
+            <p class="lead">Memory backend for AI agents. One SQLite file stores entities, facts, relationships, and vectors. No Postgres, no Redis, no Pinecone. Copy one file to back up everything.</p>
+
+            <div class="cmd-block">
+                <div class="cmd-label">Install</div>
+                <div class="cmd-code">go get github.com/bowerhall/sheldon/pkg/sheldonmem</div>
             </div>
-        </section>
 
-        <section class="section">
-            <div class="container">
-                <div class="install-box">
-                    <p>Install:</p>
-                    <div class="install-code">go get github.com/bowerhall/sheldon/pkg/sheldonmem</div>
-                </div>
+            <div class="section-title">Data model</div>
+            <ul class="features">
+                <li>
+                    <strong>Entities</strong>
+                    People, places, projects, concepts. Named nodes in the graph.
+                </li>
+                <li>
+                    <strong>Facts</strong>
+                    Key-value pairs attached to entities. Confidence-scored. Domain-tagged.
+                </li>
+                <li>
+                    <strong>Edges</strong>
+                    Typed relationships between entities. "works_at", "lives_in", "knows".
+                </li>
+                <li>
+                    <strong>Vectors</strong>
+                    sqlite-vec for semantic search. Bring your own embedder.
+                </li>
+            </ul>
 
-                <ul class="features">
-                    <li><strong>Single file storage</strong> — SQLite + sqlite-vec, portable, no external DB</li>
-                    <li><strong>14 life domains</strong> — Structured memory across identity, health, work, relationships, etc.</li>
-                    <li><strong>Entity-fact-edge model</strong> — Knowledge graph with typed relationships</li>
-                    <li><strong>Hybrid retrieval</strong> — Keyword + semantic search combined</li>
-                    <li><strong>Confidence scoring</strong> — Facts have confidence levels, contradictions auto-resolve</li>
-                    <li><strong>Memory decay</strong> — Salience-aware cleanup for long-running agents</li>
-                </ul>
+            <div class="section-title">Features</div>
+            <ul class="features">
+                <li>
+                    <strong>14 life domains</strong>
+                    Identity, health, relationships, work, finances, goals, routines, etc. Facts tagged for scoped retrieval.
+                </li>
+                <li>
+                    <strong>Hybrid search</strong>
+                    Keyword matching + vector similarity in one query. Results ranked by combined score.
+                </li>
+                <li>
+                    <strong>Contradiction resolution</strong>
+                    New facts supersede old ones on the same field. "city=NYC" → "city=Portland" auto-archives NYC.
+                </li>
+                <li>
+                    <strong>Time-based queries</strong>
+                    "since: 2025-02-20", "time_range: last_week". Explicit temporal retrieval.
+                </li>
+                <li>
+                    <strong>Salience decay</strong>
+                    Old, unused facts fade. Keeps agent context relevant over time.
+                </li>
+            </ul>
 
-                <div class="install-box">
-                    <p>Quick start:</p>
-                    <div class="install-code">store, _ := sheldonmem.Open("/path/to/memory.db")
-store.SetEmbedder(yourEmbedder)
-result, _ := store.Recall(ctx, "user's location", nil, 5)</div>
-                </div>
+            <div class="cmd-block">
+                <div class="cmd-label">Usage</div>
+                <div class="cmd-code">store, _ := sheldonmem.Open("memory.db")
+store.SetEmbedder(embedder)
 
-                <div class="btn-group">
-                    <a href="https://github.com/bowerhall/sheldon/tree/main/pkg/sheldonmem" class="btn btn-primary">View on GitHub</a>
-                    <a href="https://pkg.go.dev/github.com/bowerhall/sheldon/pkg/sheldonmem" class="btn btn-secondary">Go Docs</a>
-                </div>
+// Store facts
+store.AddFact(&userID, domainWork, "role", "engineer", 0.9)
+store.AddFact(&userID, domainLocation, "city", "Portland", 0.9)
+
+// Hybrid recall
+results, _ := store.Recall(ctx, "where does user work", nil, 5)
+
+// Time-based recall
+results, _ := store.Recall(ctx, "*", &RecallOpts{
+    TimeRange: "last_week",
+}, 10)</div>
             </div>
-        </section>
+
+            <div class="btn-row">
+                <a href="https://github.com/bowerhall/sheldon/tree/main/pkg/sheldonmem" class="btn">GitHub</a>
+                <a href="https://pkg.go.dev/github.com/bowerhall/sheldon/pkg/sheldonmem" class="btn">Go docs</a>
+            </div>
+        </div>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <span>bowerhall</span>
-                <div class="footer-links">
-                    <a href="https://github.com/bowerhall/sheldon/tree/main/pkg/sheldonmem">GitHub</a>
-                </div>
-            </div>
+        <div class="wrap">
+            <span>bowerhall</span>
+            <a href="https://github.com/bowerhall/sheldon/tree/main/pkg/sheldonmem">github</a>
         </div>
     </footer>
 </body>
