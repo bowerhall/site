@@ -169,18 +169,21 @@
             </ul>
 
             <div class="cmd-block">
-                <div class="cmd-label">Join homelab network (generate authkey in Headscale first)</div>
+                <div class="cmd-label">Join homelab network</div>
+                <div class="cmd-subtitle">Connect machines to your private mesh. Generate authkey on Sheldon's VPS first.</div>
                 <div class="cmd-code">HEADSCALE_URL=https://hs.example.com AUTHKEY=key \
 curl -fsSL bowerhall.ai/sheldon/invite | sudo bash</div>
             </div>
 
             <div class="cmd-block">
                 <div class="cmd-label">Standalone agent</div>
+                <div class="cmd-subtitle">Run on remote machines for Sheldon to control. Exposes port 8080.</div>
                 <div class="cmd-code">curl -fsSL bowerhall.ai/sheldon/agent | sudo bash</div>
             </div>
 
             <div class="cmd-block">
                 <div class="cmd-label">Manage config</div>
+                <div class="cmd-subtitle">Edit API keys, timezone, and other settings. Restart Sheldon.</div>
                 <div class="cmd-code">curl -fsSL bowerhall.ai/sheldon/config | sudo bash</div>
             </div>
 
