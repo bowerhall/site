@@ -1,4 +1,5 @@
 # Sheldon install scripts (302 redirect - curl -L follows these)
 /sheldon/install    https://raw.githubusercontent.com/bowerhall/sheldon/main/core/scripts/install.sh    302
+/sheldon/config     https://raw.githubusercontent.com/bowerhall/sheldon/main/core/scripts/config.sh     302
 /sheldon/invite     https://raw.githubusercontent.com/bowerhall/sheldon/main/core/scripts/invite.sh     302
 /sheldon/agent      https://raw.githubusercontent.com/bowerhall/sheldon/main/core/scripts/agent.sh      302
