@@ -44,7 +44,7 @@
             <div class="cmd-block">
                 <div class="cmd-label">Give Sheldon a home</div>
                 <div class="cmd-subtitle"><span class="desktop-only">VPS, homelab, Raspberry Pi — any Linux machine.</span><span class="mobile-only">VPS, Raspberry Pi, any Linux machine.</span></div>
-                <div class="cmd-code">curl -fsSL bowerhall.ai/sheldon/install | sudo bash</div>
+                <div class="cmd-code">curl -fsSL bowerhall.ai/sheldon/install | sudo bash<button class="copy-btn" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></div>
             </div>
 
             <div class="section-title">Memory</div>
@@ -199,19 +199,19 @@ docker exec headscale headscale preauthkeys create --user default
 
 # On the machine you want to join
 HEADSCALE_URL=https://hs.example.com AUTHKEY=key \
-curl -fsSL bowerhall.ai/sheldon/invite | sudo bash</div>
+curl -fsSL bowerhall.ai/sheldon/invite | sudo bash<button class="copy-btn" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></div>
             </div>
 
             <div class="cmd-block">
                 <div class="cmd-label">Standalone agent</div>
                 <div class="cmd-subtitle">Run on remote machines for Sheldon to control. Exposes port 8080.</div>
-                <div class="cmd-code">curl -fsSL bowerhall.ai/sheldon/agent | sudo bash</div>
+                <div class="cmd-code">curl -fsSL bowerhall.ai/sheldon/agent | sudo bash<button class="copy-btn" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></div>
             </div>
 
             <div class="cmd-block">
                 <div class="cmd-label">Manage config</div>
                 <div class="cmd-subtitle">Edit API keys, timezone, and other settings. Restart Sheldon.</div>
-                <div class="cmd-code">curl -fsSL bowerhall.ai/sheldon/config | sudo bash</div>
+                <div class="cmd-code">curl -fsSL bowerhall.ai/sheldon/config | sudo bash<button class="copy-btn" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></div>
             </div>
 
             <div class="btn-row">
@@ -227,5 +227,17 @@ curl -fsSL bowerhall.ai/sheldon/invite | sudo bash</div>
             <a href="mailto:hello@bowerhall.ai">hello@bowerhall.ai</a>
         </div>
     </footer>
+<script>
+document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.onclick = () => {
+        const code = btn.parentElement.childNodes[0].textContent;
+        navigator.clipboard.writeText(code);
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+        setTimeout(() => {
+            btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+        }, 1500);
+    };
+});
+</script>
 </body>
 </html>

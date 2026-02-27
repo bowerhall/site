@@ -179,6 +179,33 @@ h1 {
     color: var(--gray);
     padding: 14px 16px;
     background: #000;
+    position: relative;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.cmd-code:hover .copy-btn {
+    opacity: 0.5;
+}
+
+.copy-btn:hover {
+    opacity: 1 !important;
+}
+
+.copy-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--white);
 }
 
 .section-title {
