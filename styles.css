@@ -292,6 +292,12 @@ footer a:hover {
         border-left: none;
         border-right: none;
     }
+    .features + .cmd-block {
+        margin-top: 32px;
+    }
+    .features li:last-child {
+        border-bottom: none;
+    }
     .cmd-block + .cmd-block {
         border-top: none;
     }
