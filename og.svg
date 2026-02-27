@@ -1,0 +1,17 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#000"/>
+
+  <!-- Logo centered above text -->
+  <g transform="translate(552, 200)">
+    <rect x="0" y="0" width="40" height="40" fill="#fff"/>
+    <rect x="48" y="48" width="40" height="40" fill="#fff"/>
+    <rect x="48" y="0" width="40" height="40" fill="#fff" opacity="0.4"/>
+    <rect x="0" y="48" width="40" height="40" fill="#fff" opacity="0.4"/>
+  </g>
+
+  <!-- "sheldon" text -->
+  <text x="600" y="380" font-family="JetBrains Mono, monospace" font-size="72" font-weight="700" fill="#fff" text-anchor="middle">sheldon</text>
+
+  <!-- "bowerhall.ai" subtle -->
+  <text x="600" y="560" font-family="JetBrains Mono, monospace" font-size="24" fill="#666" text-anchor="middle">bowerhall.ai</text>
+</svg>
