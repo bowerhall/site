@@ -169,6 +169,26 @@
                 </li>
             </ul>
 
+            <div class="section-title">Security</div>
+            <ul class="features">
+                <li>
+                    <strong>No filesystem access</strong>
+                    Sheldon can't write arbitrary files. Storage is scoped to skills, notes, and MinIO buckets.
+                </li>
+                <li>
+                    <strong>Sandboxed code execution</strong>
+                    Code runs in ephemeral Docker containers. Discarded after each task.
+                </li>
+                <li>
+                    <strong>Git token isolation</strong>
+                    Coder can't access your GitHub token. Sheldon handles git operations externally.
+                </li>
+                <li>
+                    <strong>Docker socket proxy</strong>
+                    Limited Docker API access. No volume management or swarm features exposed.
+                </li>
+            </ul>
+
             <div class="cmd-block">
                 <div class="cmd-label">Join homelab network</div>
                 <div class="cmd-subtitle">Connect machines to your private mesh.</div>
