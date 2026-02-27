@@ -53,8 +53,15 @@ header .wrap {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 17px;
+}
+
+.logo-mark {
+    flex-shrink: 0;
 }
 
 .nav a {

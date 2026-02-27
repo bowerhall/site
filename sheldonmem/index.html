@@ -9,7 +9,15 @@
 <body>
     <header>
         <div class="wrap">
-            <a href="/" class="logo">bowerhall</a>
+            <a href="/" class="logo">
+                <svg class="logo-mark" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="3" width="8" height="8" fill="currentColor"/>
+                    <rect x="13" y="13" width="8" height="8" fill="currentColor"/>
+                    <rect x="13" y="3" width="8" height="8" fill="currentColor" opacity="0.4"/>
+                    <rect x="3" y="13" width="8" height="8" fill="currentColor" opacity="0.4"/>
+                </svg>
+                <span>bowerhall</span>
+            </a>
             <nav class="nav">
                 <a href="https://github.com/bowerhall/sheldon/tree/main/pkg/sheldonmem">github</a>
                 <a href="https://pkg.go.dev/github.com/bowerhall/sheldon/pkg/sheldonmem">godoc</a>
@@ -20,7 +28,7 @@
     <main>
         <div class="wrap product">
             <h1>sheldonmem</h1>
-            <p class="lead">Memory backend for AI agents. One SQLite file stores entities, facts, relationships, and vectors. No Postgres, no Redis, no Pinecone. Copy one file to back up everything.</p>
+            <p class="lead">The brain your agent needs. One SQLite file stores entities, facts, relationships, and vectors. No Postgres, no Redis, no Pinecone. Copy one file to back up everything.</p>
 
             <div class="cmd-block">
                 <div class="cmd-label">Install</div>
@@ -43,7 +51,23 @@
                 </li>
                 <li>
                     <strong>Vectors</strong>
-                    sqlite-vec for semantic search. Bring your own embedder.
+                    sqlite-vec for semantic search. Ollama embeddings by default, or bring your own.
+                </li>
+            </ul>
+
+            <div class="section-title">Short-term vs long-term</div>
+            <ul class="features">
+                <li>
+                    <strong>Notes for mutable state</strong>
+                    Shopping lists, weekly plans, habit streaks. Keys live in system prompt, content loads on-demand.
+                </li>
+                <li>
+                    <strong>Facts for long-term memory</strong>
+                    "User lives in Portland", "User is vegetarian". Archived with vectors, recalled via hybrid search.
+                </li>
+                <li>
+                    <strong>Context efficiency</strong>
+                    System prompt sees keys only, not content. Base context stays small while state grows.
                 </li>
             </ul>
 
@@ -69,6 +93,10 @@
                     <strong>Salience decay</strong>
                     Old, unused facts fade. Keeps agent context relevant over time.
                 </li>
+                <li>
+                    <strong>Memory-linked crons</strong>
+                    Crons store a keyword, not a message. At fire time, recall current context and decide what to say.
+                </li>
             </ul>
 
             <div class="cmd-block">
@@ -76,17 +104,18 @@
                 <div class="cmd-code">store, _ := sheldonmem.Open("memory.db")
 store.SetEmbedder(embedder)
 
-// Store facts
-store.AddFact(&userID, domainWork, "role", "engineer", 0.9)
-store.AddFact(&userID, domainLocation, "city", "Portland", 0.9)
+// Store facts (7=career, 9=place)
+store.AddFact(&userID, 7, "role", "engineer", 0.9)
+store.AddFact(&userID, 9, "city", "Portland", 0.9)
 
 // Hybrid recall
 results, _ := store.Recall(ctx, "where does user work", nil, 5)
 
 // Time-based recall
-results, _ := store.Recall(ctx, "*", &RecallOpts{
-    TimeRange: "last_week",
-}, 10)</div>
+since := time.Now().AddDate(0, 0, -7)
+results, _ := store.RecallWithOptions(ctx, "*", nil, 10, RecallOptions{
+    Since: &since,
+})</div>
             </div>
 
             <div class="btn-row">
@@ -98,8 +127,8 @@ results, _ := store.Recall(ctx, "*", &RecallOpts{
 
     <footer>
         <div class="wrap">
-            <span>bowerhall</span>
-            <a href="https://github.com/bowerhall/sheldon/tree/main/pkg/sheldonmem">github</a>
+            <span>bowerhall © 2025</span>
+            <a href="mailto:hello@bowerhall.ai">hello@bowerhall.ai</a>
         </div>
     </footer>
 </body>

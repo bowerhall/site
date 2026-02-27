@@ -9,7 +9,15 @@
 <body>
     <header>
         <div class="wrap">
-            <a href="/" class="logo">bowerhall</a>
+            <a href="/" class="logo">
+                <svg class="logo-mark" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="3" width="8" height="8" fill="currentColor"/>
+                    <rect x="13" y="13" width="8" height="8" fill="currentColor"/>
+                    <rect x="13" y="3" width="8" height="8" fill="currentColor" opacity="0.4"/>
+                    <rect x="3" y="13" width="8" height="8" fill="currentColor" opacity="0.4"/>
+                </svg>
+                <span>bowerhall</span>
+            </a>
             <nav class="nav">
                 <a href="https://github.com/bowerhall/sheldon">github</a>
                 <a href="https://github.com/bowerhall/sheldon#readme">docs</a>
@@ -59,7 +67,7 @@
                 </li>
                 <li>
                     <strong>One-time or recurring</strong>
-                    "Remind me at 3pm" auto-deletes after firing. "Check on me every 6 hours" persists.
+                    "Remind me at 3pm" fires once. "Check on me every 6 hours" runs until — you decide.
                 </li>
             </ul>
 
@@ -71,7 +79,7 @@
                 </li>
                 <li>
                     <strong>GitHub collaboration</strong>
-                    Creates branches, opens PRs to your org. You review and merge.
+                    Add an org-scoped PAT. Sheldon creates branches and opens PRs—no access to main. You review and merge.
                 </li>
                 <li>
                     <strong>Full pipeline</strong>
@@ -79,7 +87,35 @@
                 </li>
                 <li>
                     <strong>Multi-provider</strong>
-                    Kimi, Claude, GPT-4, Ollama. Switch models mid-conversation. Auto-fallback when credits run out.
+                    Kimi, Claude, GPT-4, Ollama. Ask Sheldon to switch models mid-conversation. Auto-fallback when credits run out.
+                </li>
+                <li>
+                    <strong>Local models</strong>
+                    Ask Sheldon to pull and run Ollama models. He'll check disk space before downloading.
+                </li>
+            </ul>
+
+            <div class="section-title">Vision</div>
+            <ul class="features">
+                <li>
+                    <strong>Images and videos</strong>
+                    Send a receipt, screenshot, or video. Sheldon extracts the info and remembers it.
+                </li>
+                <li>
+                    <strong>Save and recall</strong>
+                    Images saved to MinIO. Ask "what was on that receipt?" and Sheldon knows.
+                </li>
+                <li>
+                    <strong>Model-dependent</strong>
+                    Works with Claude, GPT-4o, and vision-capable Ollama models. Sheldon tells you if the current model can't see.
+                </li>
+                <li>
+                    <strong>Vision + notes + crons</strong>
+                    Photo of pill bottle → extracts dosage → 8pm cron reminds with correct dose. Screenshot of gym plan → saves to note → weekly check-in tracks progress. Photo of whiteboard → extracts tasks → Sheldon follows up on each.
+                </li>
+                <li>
+                    <strong>ADHD-friendly</strong>
+                    Crons recall your context and know what changed before nudging you. Stay organized without actually organizing. Just share things with Sheldon and he handles the rest.
                 </li>
             </ul>
 
@@ -88,6 +124,18 @@
                 <li>
                     <strong>Browser automation</strong>
                     Sandboxed agent-browser for JS-heavy sites. Research, form filling, scraping.
+                </li>
+                <li>
+                    <strong>Apartment hunting</strong>
+                    Browse listings, compare options, fill applications. Works in foreign languages too.
+                </li>
+                <li>
+                    <strong>Job applications</strong>
+                    Apply to jobs with custom resumes. Sheldon tailors each application to the posting.
+                </li>
+                <li>
+                    <strong>Extensible with skills</strong>
+                    Teach Sheldon new workflows via markdown skills. If it can be done in a browser, Sheldon can learn it.
                 </li>
             </ul>
 
@@ -100,6 +148,14 @@
                 <li>
                     <strong>S3 storage</strong>
                     MinIO for files, backups, sharing. Generate expiring links. Backup memory to storage.
+                </li>
+                <li>
+                    <strong>No config files</strong>
+                    Ask Sheldon for disk space, container health, or logs. Restart your services, clean up. He can't touch his own core infra.
+                </li>
+                <li>
+                    <strong>Free tier forever</strong>
+                    Switch to local models and pay nothing beyond your $8/mo VPS.
                 </li>
             </ul>
 
@@ -123,8 +179,8 @@ curl -fsSL bowerhall.ai/sheldon/invite | sudo bash</div>
 
     <footer>
         <div class="wrap">
-            <span>bowerhall</span>
-            <a href="https://github.com/bowerhall/sheldon">github</a>
+            <span>bowerhall © 2025</span>
+            <a href="mailto:hello@bowerhall.ai">hello@bowerhall.ai</a>
         </div>
     </footer>
 </body>
