@@ -301,7 +301,11 @@ footer a:hover {
     .cmd-block + .cmd-block {
         border-top: none;
     }
-    .btn-row { justify-content: center; }
+    .btn-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
     .btn-row .btn {
         padding: 0;
         border: none;
