@@ -285,15 +285,15 @@ footer a:hover {
     .cmd-block {
         margin-left: -32px;
         margin-right: -32px;
+        margin-top: 0;
         margin-bottom: 0;
         padding-left: 32px;
         padding-right: 32px;
         border-left: none;
         border-right: none;
-        border-bottom: none;
     }
-    .cmd-block:last-of-type {
-        border-bottom: 1px solid var(--border);
+    .cmd-block + .cmd-block {
+        border-top: none;
     }
     .btn-row { justify-content: center; }
     .btn-row .btn {
