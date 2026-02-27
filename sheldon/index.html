@@ -170,8 +170,12 @@
 
             <div class="cmd-block">
                 <div class="cmd-label">Join homelab network</div>
-                <div class="cmd-subtitle">Connect machines to your private mesh. Generate authkey on Sheldon's VPS first.</div>
-                <div class="cmd-code">HEADSCALE_URL=https://hs.example.com AUTHKEY=key \
+                <div class="cmd-subtitle">Connect machines to your private mesh.</div>
+                <div class="cmd-code"># On Sheldon's VPS: generate an authkey
+docker exec headscale headscale preauthkeys create --user default
+
+# On the machine you want to join
+HEADSCALE_URL=https://hs.example.com AUTHKEY=key \
 curl -fsSL bowerhall.ai/sheldon/invite | sudo bash</div>
             </div>
 
