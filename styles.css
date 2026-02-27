@@ -176,7 +176,7 @@ h1 {
     line-height: 1.8;
     overflow-x: auto;
     white-space: pre;
-    color: #f59e0b;
+    color: var(--gray);
     padding: 14px 16px;
     background: #000;
     border: 1px solid #222;
