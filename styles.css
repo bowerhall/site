@@ -282,5 +282,15 @@ footer a:hover {
     html { font-size: 14px; }
     h1 { font-size: 26px; }
     main { padding: 40px 0 80px; }
-    .btn-row { display: none; }
+    .btn-row { justify-content: center; }
+    .btn-row .btn {
+        padding: 0;
+        border: none;
+        color: var(--gray);
+        font-size: 13px;
+    }
+    .btn-row .btn:hover {
+        background: none;
+        color: var(--white);
+    }
 }
