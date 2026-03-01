@@ -45,6 +45,7 @@
                 <div class="cmd-label">Give Sheldon a home</div>
                 <div class="cmd-subtitle"><span class="desktop-only">VPS, homelab, Raspberry Pi — any Linux machine.</span><span class="mobile-only">VPS, Raspberry Pi, any Linux machine.</span></div>
                 <div class="cmd-code">curl -fsSL bowerhall.ai/sheldon/install | sudo bash<button class="copy-btn" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></div>
+                <a href="/sheldon/install" class="cmd-link">Full installation guide →</a>
             </div>
 
             <div class="section-title">Memory</div>
@@ -193,7 +194,7 @@
 
             <div class="cmd-block">
                 <div class="cmd-label">Join homelab network</div>
-                <div class="cmd-subtitle">Connect machines to your private mesh.</div>
+                <div class="cmd-subtitle">For remote machines — connects via private mesh so Sheldon can reach them anywhere.</div>
                 <div class="cmd-code"># On Sheldon's VPS: generate an authkey
 docker exec headscale headscale preauthkeys create --user default
 
@@ -203,8 +204,8 @@ curl -fsSL bowerhall.ai/sheldon/invite | sudo bash<button class="copy-btn" aria-
             </div>
 
             <div class="cmd-block">
-                <div class="cmd-label">Standalone agent</div>
-                <div class="cmd-subtitle">Run on remote machines for Sheldon to control. Exposes port 8080.</div>
+                <div class="cmd-label">Local network agent</div>
+                <div class="cmd-subtitle">For machines already on the same network as Sheldon (LAN, existing VPN). No mesh setup needed.</div>
                 <div class="cmd-code">curl -fsSL bowerhall.ai/sheldon/agent | sudo bash<button class="copy-btn" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></div>
             </div>
 

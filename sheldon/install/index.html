@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Install Sheldon - Self-Hosted AI Assistant</title>
+    <meta name="description" content="Two ways to deploy Sheldon: quick install script or CI/CD with GitHub Actions. Get your AI assistant running in minutes.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/styles.css">
+    <meta property="og:title" content="Install Sheldon">
+    <meta property="og:description" content="Deploy your AI assistant in minutes. Quick install or full CI/CD pipeline.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bowerhall.ai/sheldon/install">
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <a href="/" class="logo">
+                <svg class="logo-mark" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="3" width="8" height="8" fill="currentColor"/>
+                    <rect x="13" y="13" width="8" height="8" fill="currentColor"/>
+                    <rect x="13" y="3" width="8" height="8" fill="currentColor" opacity="0.4"/>
+                    <rect x="3" y="13" width="8" height="8" fill="currentColor" opacity="0.4"/>
+                </svg>
+                <span>bowerhall</span>
+            </a>
+            <nav class="nav">
+                <a href="/sheldon">sheldon</a>
+                <a href="https://github.com/bowerhall/sheldon" target="_blank" rel="noopener">github</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrap product">
+            <h1>Install Sheldon</h1>
+            <p class="lead">Two paths: quick install for personal use, or CI/CD for automated deployments. Both get you the same Sheldon.</p>
+
+            <div class="section-title">Quick Install</div>
+            <p>Best for: personal VPS, homelab, Raspberry Pi. One command, edit config, done.</p>
+
+            <div class="cmd-block">
+                <div class="cmd-label">Run installer</div>
+                <div class="cmd-subtitle">SSH into your server and run. It'll ask for your tokens, configure everything, and start Sheldon.</div>
+                <div class="cmd-code">curl -fsSL bowerhall.ai/sheldon/install | bash<button class="copy-btn" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></div>
+            </div>
+
+            <ul class="features">
+                <li>
+                    <strong>1. Get a server</strong>
+                    Any Linux machine with 2GB+ RAM. Hetzner, DigitalOcean, Linode, or your own hardware. ~$5-8/mo for a basic VPS.
+                </li>
+                <li>
+                    <strong>2. Get a Telegram bot</strong>
+                    Message <a href="https://t.me/BotFather" target="_blank" rel="noopener">@BotFather</a> on Telegram. Send <code>/newbot</code>, follow prompts, save the token.
+                </li>
+                <li>
+                    <strong>3. Get your chat ID</strong>
+                    Message <a href="https://t.me/userinfobot" target="_blank" rel="noopener">@userinfobot</a> on Telegram. It replies with your numeric ID.
+                </li>
+                <li>
+                    <strong>4. Get an LLM API key</strong>
+                    <a href="https://platform.moonshot.cn" target="_blank" rel="noopener">Kimi</a> (recommended, cheapest), <a href="https://console.anthropic.com" target="_blank" rel="noopener">Anthropic</a>, or <a href="https://platform.openai.com" target="_blank" rel="noopener">OpenAI</a>. One is enough — Sheldon auto-detects.
+                </li>
+            </ul>
+
+            <div class="section-title">CI/CD Install</div>
+            <p>Best for: developers who want automated deployments on every push. Fork, configure secrets, push.</p>
+
+            <ul class="features">
+                <li>
+                    <strong>1. Fork the repo</strong>
+                    Fork <a href="https://github.com/bowerhall/sheldon/fork" target="_blank" rel="noopener">bowerhall/sheldon</a> to your GitHub account.
+                </li>
+                <li>
+                    <strong>2. Get a server</strong>
+                    Same as quick install. Note the IP address and set up SSH key access.
+                </li>
+                <li>
+                    <strong>3. Configure secrets</strong>
+                    In your fork: Settings → Secrets → Actions. Add these repository secrets:
+                </li>
+            </ul>
+
+            <div class="cmd-block">
+                <div class="cmd-label">Required secrets</div>
+                <div class="cmd-subtitle">Add these in GitHub repo settings:</div>
+                <div class="cmd-code"># Server access
+VPS_HOST=your-server-ip
+VPS_USER=root
+VPS_SSH_KEY=-----BEGIN OPENSSH PRIVATE KEY-----...
+
+# Container registry
+GHCR_TOKEN=ghp_xxxx  # GitHub PAT with packages:write
+
+# Bot & LLM
+TELEGRAM_TOKEN=your-bot-token
+OWNER_CHAT_ID=your-chat-id
+KIMI_API_KEY=your-kimi-key
+TZ=Europe/London  # your timezone
+
+# Domain (for HTTPS)
+DOMAIN=yourdomain.com
+ACME_EMAIL=you@email.com<button class="copy-btn" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></div>
+            </div>
+
+            <ul class="features">
+                <li>
+                    <strong>4. Push to deploy</strong>
+                    Push to main branch. GitHub Actions builds, pushes to GHCR, and deploys to your server automatically.
+                </li>
+                <li>
+                    <strong>5. Auto-updates</strong>
+                    Watchtower runs on the server and pulls new images every 5 hours. Or trigger manually.
+                </li>
+            </ul>
+
+            <div class="section-title">Managing Sheldon</div>
+
+            <div class="cmd-block">
+                <div class="cmd-label">Manage config</div>
+                <div class="cmd-subtitle">Change API keys, timezone, or other settings and restart Sheldon:</div>
+                <div class="cmd-code">curl -fsSL bowerhall.ai/sheldon/config | sudo bash<button class="copy-btn" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></div>
+            </div>
+
+            <div class="cmd-block">
+                <div class="cmd-label">Add a domain</div>
+                <div class="cmd-subtitle">Upgrade from IP-only to HTTPS with your own domain name:</div>
+                <div class="cmd-code">curl -fsSL bowerhall.ai/sheldon/upgrade-domain | sudo bash<button class="copy-btn" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></div>
+            </div>
+
+            <div class="section-title">Troubleshooting</div>
+            <ul class="features">
+                <li>
+                    <strong>Sheldon not responding</strong>
+                    Check logs for errors. Usually an invalid API key or rate limit. Sheldon tries kimi → claude → openai in order.
+                </li>
+                <li>
+                    <strong>API errors / rate limits</strong>
+                    Add credits to your provider, or add another API key. Sheldon auto-falls back between configured providers.
+                </li>
+                <li>
+                    <strong>Docker issues</strong>
+                    Run <code>docker compose down && docker compose up -d</code> to restart everything cleanly.
+                </li>
+                <li>
+                    <strong>First startup slow</strong>
+                    Ollama downloads embedding model (~274MB) on first container start. First message after restart may also be slow.
+                </li>
+            </ul>
+
+            <div class="btn-row">
+                <a href="/sheldon" class="btn">Back to Sheldon</a>
+                <a href="https://github.com/bowerhall/sheldon" class="btn" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <span>bowerhall © <script>document.write(new Date().getFullYear())</script></span>
+            <a href="mailto:hello@bowerhall.ai">hello@bowerhall.ai</a>
+        </div>
+    </footer>
+<script>
+document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.onclick = () => {
+        const code = btn.parentElement.childNodes[0].textContent;
+        navigator.clipboard.writeText(code);
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+        setTimeout(() => {
+            btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+        }, 1500);
+    };
+});
+</script>
+</body>
+</html>
