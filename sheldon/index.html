@@ -152,7 +152,27 @@
                 </li>
                 <li>
                     <strong>Authenticated browsing</strong>
-                    Optional Pinchtab integration for sites where you're logged in (Gmail, GitHub). Each browse requires your button-click approval.
+                    Optional Pinchtab integration for sites where you're logged in (Gmail, GitHub). You approve each session.
+                </li>
+            </ul>
+
+            <div class="section-title">File Storage & Sharing</div>
+            <ul class="features">
+                <li>
+                    <strong>S3-compatible storage</strong>
+                    MinIO runs alongside Sheldon. Store files, images, backups — no external services needed.
+                </li>
+                <li>
+                    <strong>Shareable links</strong>
+                    "Share a link to budget.xlsx" → presigned URL with expiration. Works without authentication — anyone with the link can download.
+                </li>
+                <li>
+                    <strong>Memory backups</strong>
+                    Sheldon backs up memory to storage and sends the file directly to chat. Restore anytime.
+                </li>
+                <li>
+                    <strong>Zero config</strong>
+                    Storage auto-initializes on first run. No buckets to create, no credentials to manage.
                 </li>
             </ul>
 
@@ -161,10 +181,6 @@
                 <li>
                     <strong>Private mesh network</strong>
                     Headscale (self-hosted Tailscale). Add machines with one command. Manage containers remotely.
-                </li>
-                <li>
-                    <strong>S3 storage</strong>
-                    MinIO for files, backups, sharing. Generate expiring links. Backup memory to storage.
                 </li>
                 <li>
                     <strong>No config files</strong>

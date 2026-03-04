@@ -129,6 +129,30 @@ ACME_EMAIL=you@email.com<button class="copy-btn" aria-label="Copy"><svg viewBox=
                 <div class="cmd-code">curl -fsSL bowerhall.ai/sheldon/upgrade-domain | sudo bash<button class="copy-btn" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></div>
             </div>
 
+            <div class="section-title">DNS Records</div>
+            <p>Point these DNS records to your VPS IP. Easiest: use a wildcard record to cover everything.</p>
+
+            <div class="cmd-block">
+                <div class="cmd-label">Wildcard (recommended)</div>
+                <div class="cmd-subtitle">Two A records cover all current and future subdomains:</div>
+                <div class="cmd-code">yourdomain.com        → A → your-vps-ip
+*.yourdomain.com      → A → your-vps-ip<button class="copy-btn" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></div>
+            </div>
+
+            <ul class="features">
+                <li>
+                    <strong>Without wildcard</strong>
+                    If your DNS provider doesn't support wildcards, add these specific records instead:
+                    <code>yourdomain.com</code> — main Sheldon access,
+                    <code>storage.yourdomain.com</code> — MinIO web console,
+                    <code>s3.yourdomain.com</code> — S3 API for file sharing links.
+                </li>
+                <li>
+                    <strong>Traefik handles the rest</strong>
+                    HTTPS certificates via Let's Encrypt are automatic. No manual cert setup needed.
+                </li>
+            </ul>
+
             <div class="section-title">Troubleshooting</div>
             <ul class="features">
                 <li>
